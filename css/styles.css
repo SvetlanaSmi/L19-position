@@ -1,0 +1,276 @@
+:root {
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+    
+*, ::before, ::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    position: relative;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: auto;
+    height: 100vh;
+    background: rgba(241, 234, 234, 0.904);
+}
+nav {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 160px;
+    background: rgb(88, 135, 196);
+    text-transform: capitalize;
+    color: bisque;
+    border: none;
+    box-shadow: 4px 4px 6px grey;
+}
+nav>ul {
+    font-size: 0;
+}
+nav>ul>li {
+    font-size: .8rem;
+    cursor: pointer;
+    padding: 4px 5px;
+    border-top: .01em solid bisque; 
+    list-style: none;
+
+}
+nav>ul>li:first-child {
+    border-top: none;
+}
+li:hover {
+    background: rgb(114, 188, 248);
+}
+
+
+
+.submenu {
+    position: relative;
+    background: rgb(1, 128, 121);   
+}
+.submenu:hover {
+    background:rgb(38, 189, 169);
+}
+.submenu>ul {
+    visibility: hidden;
+    position: absolute;
+    left: 150px;
+    top: 6px;
+    background: rgb(88, 135, 196);
+    font-size: 0;
+    list-style: none;
+    z-index: 1;
+    min-width: 160px;
+    box-shadow: 4px 4px 6px grey;
+    opacity: 0;
+    transition: all .5s ease-out 1ms;
+}
+.submenu>ul li {
+    font-size: .8rem;
+    padding: 4px 5px;
+    border: .01em solid bisque;
+}
+.submenu>ul li:nth-child(n+1) {
+    border-bottom: none;
+}
+.submenu>ul li:last-child {
+    border: .01em solid bisque;  
+}
+li:hover>ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.submenu::after {
+    content: " ";
+    position: absolute;
+    top: 20%;
+    right: 0px;
+    border: 11px solid transparent;
+    border-left: 12px solid burlywood; 
+}
+
+
+
+
+
+.goods {
+    position: absolute;
+    left: 190px;
+}
+.goods>div {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 280px;
+    background: white;
+    margin: 20px 10px;
+    border-radius: 5px;
+    background: transparent;
+    transition: all .5s ease-in-out;
+
+}
+.goods>div:hover {
+    background: white;
+    cursor: pointer;
+    border-radius: 0;
+    box-shadow: 2px 2px 19px rgb(197, 195, 195);
+} 
+.goods>div:hover>img {
+    border: .02em solid transparent;
+    
+}
+img {
+    width: 100%;
+    height: 50%;
+    vertical-align: top;
+    border-radius: 5px;
+    border: .02em solid rgba(204, 199, 199, 0.774);
+    transition: all 1ms linear;
+}
+.descript {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    width: inherit;
+    height: 141px;
+    transition: border-top .1s ease-in;
+    border-top: 2px solid transparent;
+}
+.goods>div:hover>.descript {
+    border-top: 2px solid orange;
+    cursor: auto;
+}
+
+.name {
+    display: inline-block;
+    font-size: .4em;
+    letter-spacing: .08em;
+    text-align: center;
+    margin: 20px 10px;
+    line-height: 1.2em;
+}
+.price {
+    display: block;
+    text-align: center;
+    font-size: .5em;
+    font-weight: 700;
+}
+
+.details {
+    position: absolute;
+    left: 13%;
+    bottom: 10%;
+    background: transparent;
+    width: 110px;
+    height: 30px;
+    font-size: .45em;
+    letter-spacing: -.05em;
+    border: 1px solid gray;
+    color: rgb(83, 81, 81);
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    font-style: normal;
+    cursor: pointer;
+}
+.details:hover {
+    background-color: orange;
+    border: none;
+    color: beige;
+}
+input[type="button"],
+input[type="button"]:hover {
+    position: absolute;
+    bottom: 10%;
+    right: 13%;
+    background: url(/img/roll.png);
+    background-repeat: no-repeat;
+    background-size: 120%;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+input[type="button"] {
+    background-position: -3px -34px;
+    border: 1px solid gray;
+}
+input[type="button"]:hover {
+    background: orange;
+    background-image: url(/img/roll.png);
+    background-position: -3px -2px;
+    background-size: 120%;
+    border: 1px solid transparent;
+}
+input[type="button"]:hover+.speech-bubble {
+    visibility: visible;
+    opacity: 1;
+}
+
+.speech-bubble {
+    position: relative;
+    bottom: 20px;
+    left: 140px;
+	background: #ffffff;
+    border-radius: 2px;
+    font-size: .3em;
+    visibility: hidden;
+    transition: all 1s ease-out 1s;
+    opacity: 0;
+    padding: .7em;
+    text-align: center;
+    border: .09em solid rgb(146, 143, 143);
+    width: 105px;
+    z-index: 1;   
+}
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-top-color: #ffffff;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -30px;
+    margin-bottom: -12px;   
+}
+.action {
+    font-size: .4em;
+    color: rgb(82, 80, 80);
+    position: absolute;
+    right: 2px;
+    bottom: 58px;
+    letter-spacing: -.05em;
+    text-decoration: line-through;
+}
+
+.sticker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: .5em;
+    color: white;
+    text-align: center;
+    /* transform: rotate(-45deg); */
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(255,153,0,0) 22%, rgba(255,153,0,1) 22%, rgba(255,153,0,1) 30%, rgba(255,153,0,1) 43%, rgba(255,153,0,1) 45%, rgba(255,153,0,0) 45%);
+}
+.stickertext {
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 18px;
+    left: 5px;
+}
+    
